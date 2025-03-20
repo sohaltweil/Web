@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finn Bühr | Regisseur & Video-Designer</title>
+    <meta name="description" content="Finn Bühr - Regisseur & Video-Designer. Theater, Installation und Video an der Schnittstelle zwischen digitalen Medien und Theater.">
+    <meta name="keywords" content="Theater, Regie, Video-Design, Installation, Digital Art, Tübingen">
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -308,6 +310,22 @@
                 flex-direction: column;
             }
         }
+
+        .portfolio-videos {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .portfolio-videos iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -361,9 +379,7 @@
                     <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-08 um 12.50.53_e707a083.jpg');"></div>
                     <div class="portfolio-img" style="background-image: url('images/vj/DSC01883.jpg');"></div>
                     <div class="portfolio-img" style="background-image: url('images/vj/DSC02113.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-08 um 12.51.20_e707a083.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-08 um 12.51.30_e707a083.jpg');"></div>
-                    
+
                     <div class="portfolio-details">
                         <div class="detail-item">
                             <span class="detail-label">Jahr</span>
@@ -450,9 +466,9 @@
                     </div>
 
                     <!-- Add your norway.today images here -->
-                    <div class="portfolio-img" style="background-image: url('images/norway/Screenshot 2025-03-20 235011.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/norway/Screenshot 2025-03-20 235044.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/norway/Screenshot 2025-03-20 235101.jpg');"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235011.jpg');"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235044.jpg');"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235101.jpg');"></div>
                     
                     <!-- Add your norway.today videos here -->
                     <div class="portfolio-videos">
@@ -525,5 +541,28 @@
             <p>&copy; 2025 Finn Bühr. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.textContent;
+                
+                // Filter portfolio items
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    const itemCategory = item.querySelector('.portfolio-category').textContent;
+                    if (category === 'Alle' || category === itemCategory) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
