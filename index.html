@@ -317,6 +317,7 @@
             height: 0;
             overflow: hidden;
             max-width: 100%;
+            margin-top: 20px; /* Add spacing */
         }
 
         .portfolio-videos iframe {
@@ -325,6 +326,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border: none; /* Remove iframe border */
         }
     </style>
 </head>
@@ -466,14 +468,21 @@
                     </div>
 
                     <!-- Add your norway.today images here -->
-                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235011.jpg');"></div>
+                    <div class="portfolio-img" 
+                         style="background-image: url('images/vj/Screenshot 2025-03-20 235011.jpg');"
+                         role="img" 
+                         aria-label="norway.today Aufführung">
+                    </div>
                     <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235044.jpg');"></div>
                     <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235101.jpg');"></div>
                     
                     <!-- Add your norway.today videos here -->
                     <div class="portfolio-videos">
                         <!-- Replace with your actual video URLs -->
-                        <iframe src="https://drive.google.com/file/d/1jIenW4_6wL8pTHY3n89Rd5GWJNFeKNs9/preview?usp=drive_link" width="640" height="480" allow="autoplay"></iframe>
+                        <iframe src="https://drive.google.com/file/d/1jIenW4_6wL8pTHY3n89Rd5GWJNFeKNs9/preview" 
+                                title="norway.today Videodokumentation"
+                                allow="autoplay">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -544,22 +553,23 @@
     <script>
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const category = button.textContent;
-                
-                // Filter portfolio items
-                document.querySelectorAll('.portfolio-item').forEach(item => {
-                    const itemCategory = item.querySelector('.portfolio-category').textContent;
-                    if (category === 'Alle' || category === itemCategory) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+                try {
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const category = button.textContent.trim();
+                    
+                    document.querySelectorAll('.portfolio-item').forEach(item => {
+                        const itemCategory = item.querySelector('.portfolio-category')?.textContent.trim();
+                        if (category === 'Alle' || category === itemCategory) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error filtering items:', error);
+                }
             });
         });
     </script>
