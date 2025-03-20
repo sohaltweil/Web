@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finn Bühr | Regisseur & Video-Designer</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        header {
+            background-color: white;
+            padding: 20px 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .subtitle {
+            color: #4a90e2;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            color: #4a90e2;
+            border-bottom: 2px solid #4a90e2;
+        }
+        
+        .hero {
+            background-color: #4a4a4a;
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #3a7bc8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: #4a90e2;
+        }
+        
+        .section {
+            padding: 80px 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .portfolio {
+            background-color: white;
+        }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #4a90e2;
+            color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-item {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+        }
+        
+        .portfolio-category {
+            display: inline-block;
+            background-color: #e6f0ff;
+            color: #4a90e2;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-title {
+            font-size: 1.4rem;
+            margin: 10px 0;
+        }
+        
+        .portfolio-desc {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .detail-item {
+            margin-bottom: 5px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .about {
+            background-color: #f8f8f8;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="#" class="logo">Finn Bühr</a>
+                <div class="subtitle">Regisseur & Video-Designer</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#vj">VJ</a></li>
+                    <li><a href="#about">Über mich</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>An der Schnittstelle zwischen Theater und digitalen Medien</h1>
+            <p>Ich erschaffe Welten, in denen das Digitale und das Menschliche sich begegnen. Meine Arbeiten laden ein zum Staunen, zum Nachdenken und zum Fühlen – dort, wo Technologie und Kunst verschmelzen.</p>
+            <div>
+                <a href="#portfolio" class="btn">Arbeiten entdecken</a>
+                <a href="#contact" class="btn btn-outline">Kontakt aufnehmen</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio" class="section portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-subtitle">Eine Auswahl meiner Arbeiten, die Grenzen überschreiten und neue Perspektiven eröffnen</p>
+        
+        <div class="portfolio-filters">
+            <button class="filter-btn active">Alle</button>
+            <button class="filter-btn">Theater</button>
+            <button class="filter-btn">Installation</button>
+            <button class="filter-btn">Video</button>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Theater</span>
+                    <h3 class="portfolio-title">Wonderland Ave.</h3>
+                    <p class="portfolio-desc">Eine absurd komische und beklemmende Expedition zu den Abgründen und Ähnlichkeiten zwischen Mensch und Roboter am Landestheater Tübingen.</p>
+                    
+                    <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-08 um 12.50.53_e707a083.jpg');"></div>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2025
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Kritik</span>
+                            "Mit 'Wonderland Ave.' gelingt dem Landestheater eine zugleich absurd komische und beklemmende Expedition zu den Abgründen und Ähnlichkeiten zwischen Mensch und Roboter." - Dorothee Hermann
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            Videodesign
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Theater</span>
+                    <h3 class="portfolio-title">Ikarus vom Lautertal</h3>
+                    <p class="portfolio-desc">Ein poetisches Theaterstück über Gustav Mesmer, den "Ikarus vom Lautertal", der mit selbstgebauten Flugfahrrädern seinen Traum vom Fliegen verfolgte – eine Hommage an Träumer und Visionäre.</p>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2025
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            Szenische Einrichtung und Videodesign
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Installation</span>
+                    <h3 class="portfolio-title">AIShadow</h3>
+                    <p class="portfolio-desc">Eine interaktive Installation, die menschliche Bewegungen in Echtzeit durch KI-generierte Bilder interpretiert und transformiert.</p>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2024
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Techniken</span>
+                            TouchDesigner, StreamDiffusion
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            Konzept, Programmierung, Installation
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Video</span>
+                    <h3 class="portfolio-title">Digitale Träume</h3>
+                    <p class="portfolio-desc">Eine Videoreihe, die die Grenzen zwischen Realität und digitaler Fiktion erkundet und dabei poetische Bildwelten erschafft.</p>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2023
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Techniken</span>
+                            After Effects, Cinema 4D
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            Regie, Animation, Schnitt
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="vj" class="section portfolio">
+        <h2 class="section-title">VJ</h2>
+        <p class="section-subtitle">Visuelle Erlebnisse, die Raum und Zeit transformieren</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-content">
+                    <span class="portfolio-category">TouchDesigner</span>
+                    <h3 class="portfolio-title">Visuelle Kompositionen</h3>
+                    <p class="portfolio-desc">Dynamische visuelle Erlebnisse, die Raum und Musik in einen Dialog bringen.</p>
+                    
+                    <video width="100%" height="auto" controls>
+                        <source src="videos/TDMovieOut.18.mp4" type="video/mp4">
+                        Ihr Browser unterstützt das Video-Element nicht.
+                    </video>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2024
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Techniken</span>
+                            TouchDesigner, Live-Visuals
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            VJ, Visuelle Komposition
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.19_7aa2a2f8.jpg');"></div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Festival</span>
+                    <h3 class="portfolio-title">Symphonix Stage Design</h3>
+                    <p class="portfolio-desc">Immersive visuelle Landschaften für elektronische Musik-Events.</p>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2025
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Techniken</span>
+                            Projection Mapping, Realtime Visuals
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            VJ, Visual Content Creator
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.19_5b5fe17c.jpg');"></div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Club</span>
+                    <h3 class="portfolio-title">Elektronische Visualisierungen</h3>
+                    <p class="portfolio-desc">Reaktive visuelle Kompositionen, die mit der Musik atmen und den Raum transformieren.</p>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2025
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Techniken</span>
+                            TouchDesigner, Audio-Reaktive Visuals
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            VJ, Programmierung
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.36_29d42d92.jpg');"></div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Indoor</span>
+                    <h3 class="portfolio-title">Geometrische Lichtlandschaften</h3>
+                    <p class="portfolio-desc">Abstrakte geometrische Formen und Lichtspiele, die den Raum neu definieren.</p>
+                    
+                    <video width="100%" height="auto" controls>
+                        <source src="videos/WhatsApp Video 2025-03-20 um 22.07.36_fc04f7f0.mp4" type="video/mp4">
+                        Ihr Browser unterstützt das Video-Element nicht.
+                    </video>
+                    
+                    <div class="portfolio-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Jahr</span>
+                            2025
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Techniken</span>
+                            Generative Visuals, GLSL Shader
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rolle</span>
+                            VJ, Programmierung
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="section about">
+        <h2 class="section-title">Über mich</h2>
+        <div class="about-content">
+            <p class="about-text">Als Künstler bewege ich mich in den Zwischenräumen – dort, wo Theater auf digitale Medien trifft, wo Technologie auf Menschlichkeit stößt. Meine Arbeiten sind keine kühlen Experimente, sondern herzliche Einladungen zum Staunen und Mitfühlen.</p>
+            
+            <p class="about-text">Meine künstlerische Reise führte mich über das Theater Memmingen und das Theater Freiburg, wo ich wertvolle Erfahrungen sammeln und meine Vision entwickeln konnte. Diese Stationen haben mein Verständnis für die Kraft des Theaters geprägt und meine Leidenschaft für die Verbindung von traditionellen und digitalen Ausdrucksformen gestärkt.</p>
+            
+            <p class="about-text">Ich glaube an die Kraft des Theaters, auch im digitalen Zeitalter. Meine Inszenierungen verbinden die Wärme menschlicher Präsenz mit den faszinierenden Möglichkeiten digitaler Technologien. Dabei geht es mir nicht um technische Spielereien, sondern um tiefere Fragen: Wie verändert Technologie unser Miteinander? Wie erleben wir Nähe in einer zunehmend virtuellen Welt?</p>
+            
+            <p class="about-text">In meinen Projekten suche ich nach Momenten, in denen das Digitale und das Analoge nicht im Widerspruch stehen, sondern sich gegenseitig bereichern. Momente, in denen wir durch Technologie nicht entfremdet, sondern tiefer verbunden werden – mit uns selbst und miteinander.</p>
+        </div>
+    </section>
+    
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Kontakt</h2>
+        <div class="contact-content">
+            <p class="contact-text">Haben Sie eine Idee für ein gemeinsames Projekt? Möchten Sie mehr über meine Arbeit erfahren? Ich freue mich auf Ihre Nachricht und den Beginn eines kreativen Dialogs.</p>
+            
+            <p class="contact-text">Ob für Theaterproduktionen, Installationen oder Videoprojekte – lassen Sie uns gemeinsam neue Wege erkunden an der Schnittstelle zwischen Theater und digitalen Medien.</p>
+            
+            <div class="contact-info">
+                <div>
+                    <h3>Kontaktinformationen</h3>
+                    <p>E-Mail: sohaltweil@gmail.com</p>
+                    <p>Telefon: 015782767157</p>
+                    <p>Standort: Tübingen, Deutschland</p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Nachricht senden</h3>
+                    <a href="mailto:sohaltweil@gmail.com" class="btn">E-Mail schreiben</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Finn Bühr. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
