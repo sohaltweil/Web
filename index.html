@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finn Bühr | Regisseur & Video-Designer</title>
-    <meta name="description" content="Finn Bühr - Regisseur & Video-Designer. Theater, Installation und Video an der Schnittstelle zwischen digitalen Medien und Theater.">
-    <meta name="keywords" content="Theater, Regie, Video-Design, Installation, Digital Art, Tübingen">
+    <meta name="description" content="Finn Bühr - Regisseur & Video-Designer in Tübingen. Innovative Theaterinszenierungen, Videodesign und digitale Installationen.">
+    <meta name="keywords" content="Finn Bühr, Theater Regie, Video-Design, Installation, Digital Art, Tübingen, Landestheater, norway.today, Wonderland Ave">
+    <meta name="author" content="Finn Bühr">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Finn Bühr | Regisseur & Video-Designer | Theater & Digitale Kunst Tübingen">
+    <meta property="og:description" content="Innovative Theaterinszenierungen und digitale Kunst an der Schnittstelle zwischen Theater und Technologie.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sohaltweil.github.io/Web/">
+    <meta property="og:image" content="https://sohaltweil.github.io/Web/images/vj/DSC01883.jpg">
+    <link rel="canonical" href="https://sohaltweil.github.io/Web/">
+    <title>Finn Bühr | Regisseur & Video-Designer | Theater & Digitale Kunst Tübingen</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -70,7 +78,7 @@
         .hero {
             background-color: #b3cde0;
             color: white;
-            padding: 15px 5% 25px 5%; /* Increased bottom padding by 1cm (approximately 10px) */ding by 1cm (approximately 10px) */
+            padding: 15px 5% 35px 5%; /* Increased bottom padding for better spacing */
             text-align: center;
         }
         
@@ -233,7 +241,7 @@
         }
         
         .about {
-            background-color: #f8fff8; /* Extremely desaturated, softer green */, softer green */
+            background-color: #f8fff8; /* Soft green background for about section */
         }
         
         .about-content {
@@ -287,6 +295,25 @@
             margin: 0 auto;
         }
         
+        /* Large screens (desktops) */
+        @media (min-width: 1200px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Medium screens (tablets) */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Small screens (mobile landscape) */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -313,6 +340,27 @@
                 flex-direction: column;
             }
         }
+        
+        /* Extra small screens (mobile portrait) */
+        @media (max-width: 480px) {
+            .section {
+                padding: 10px 5%;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 80%;
+            }
+        }
 
         .portfolio-videos {
             position: relative;
@@ -320,16 +368,18 @@
             height: 0;
             overflow: hidden;
             max-width: 100%;
-            margin-top: 20px; /* Add spacing */
+            margin: 20px 0;
+            background: #f8f8f8;
         }
 
+        .portfolio-videos video,
         .portfolio-videos iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none; /* Remove iframe border */
+            border: none;
         }
 
         /* Adjust spacing between sections */
@@ -342,6 +392,21 @@
             background-color: #fff0f5; /* Light pastel pink */
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Finn Bühr",
+      "jobTitle": "Regisseur & Video-Designer",
+      "url": "https://your-domain.com",
+      "sameAs": [],
+      "workLocation": {
+        "@type": "City",
+        "name": "Tübingen"
+      },
+      "description": "Regisseur und Video-Designer an der Schnittstelle zwischen Theater und digitalen Medien"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -391,9 +456,9 @@
                     <h3 class="portfolio-title">Wonderland Ave.</h3>
                     <p class="portfolio-desc">Eine absurd komische und beklemmende Expedition zu den Abgründen und Ähnlichkeiten zwischen Mensch und Roboter am Landestheater Tübingen.</p>
                     
-                    <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-08 um 12.50.53_e707a083.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/vj/DSC01883.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/vj/DSC02113.jpg');"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-08 um 12.50.53_e707a083.jpg');" role="img" aria-label="Wonderland Ave. Theateraufführung"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/DSC01883.jpg');" role="img" aria-label="Wonderland Ave. Bühnenaufnahme"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/DSC02113.jpg');" role="img" aria-label="Wonderland Ave. Detailaufnahme"></div>
 
                     <div class="portfolio-details">
                         <div class="detail-item">
@@ -413,7 +478,10 @@
                     <div class="portfolio-videos">
                         <iframe src="https://drive.google.com/file/d/1paOMPc4HzYWJiA8ka7-z8Aefl2HfoXlT/preview" 
                                 title="Wonderland Ave. Videodokumentation"
-                                allow="autoplay">
+                                allow="autoplay"
+                                loading="lazy"
+                                width="100%" 
+                                height="315">
                         </iframe>
                     </div>
                 </div>
@@ -462,7 +530,10 @@
                     <div class="portfolio-videos">
                         <iframe src="https://drive.google.com/file/d/1Ef3AMhC__1IDjP4j2HKmmcoYFv7fU-9P/preview"
                                 title="AIShadow Installation"
-                                allow="autoplay">
+                                allow="autoplay"
+                                loading="lazy"
+                                width="100%" 
+                                height="315">
                         </iframe>
                     </div>
                 </div>
@@ -495,15 +566,18 @@
                          role="img" 
                          aria-label="norway.today Aufführung">
                     </div>
-                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235044.jpg');"></div>
-                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235101.jpg');"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235044.jpg');" role="img" aria-label="norway.today Szene 1"></div>
+                    <div class="portfolio-img" style="background-image: url('images/vj/Screenshot 2025-03-20 235101.jpg');" role="img" aria-label="norway.today Szene 2"></div>
                     
                     <!-- Add your norway.today videos here -->
                     <div class="portfolio-videos">
                         <!-- Replace with your actual video URLs -->
                         <iframe src="https://drive.google.com/file/d/1jIenW4_6wL8pTHY3n89Rd5GWJNFeKNs9/preview" 
                                 title="norway.today Videodokumentation"
-                                allow="autoplay">
+                                allow="autoplay"
+                                loading="lazy"
+                                width="100%" 
+                                height="315">
                         </iframe>
                     </div>
                 </div>
@@ -517,11 +591,21 @@
         
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.19_7aa2a2f8.jpg');"></div>
+                <div class="portfolio-img" 
+                     style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.19_7aa2a2f8.jpg');"
+                     role="img" 
+                     aria-label="Theateraufführung Wonderland Ave"
+                     loading="lazy">
+                </div>
             </div>
             
             <div class="portfolio-item">
-                <div class="portfolio-img" style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.19_5b5fe17c.jpg');"></div>
+                <div class="portfolio-img" 
+                     style="background-image: url('images/vj/WhatsApp Bild 2025-03-20 um 22.07.19_5b5fe17c.jpg');"
+                     role="img"
+                     aria-label="VJ Performance"
+                     loading="lazy">
+                </div>
             </div>
             
             <div class="portfolio-item">
